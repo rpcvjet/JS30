@@ -56,15 +56,18 @@
 <script>
   const nav = document.querySelector('#main')
   const topOfNov = nav.offsetTop
-    console.log(topOfNov);
-      if (window.scrollY === topOfNov) {
-          document.body.classList.add('fixed-nav')
+     
+  function fixNav () {
+    if (window.scrollY >= topOfNov) {
+          document.body.style.paddingTop=nav.offsetHeight + 'px'
+          document.body.classList.add('fixed-nav');
       }
       else {
+        document.body.style.paddingTop= 0;
+        
+          document.body.classList.remove('fixed-nav');
         
       }
-  function fixNav () {
-
   }
 
   window.addEventListener('scroll', fixNav)
